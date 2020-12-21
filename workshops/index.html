@@ -1,0 +1,11 @@
+---
+layout: default
+title: Centre for eResearch Workshops
+---
+	<h1>{{ page.title }}</h1>
+	<ul class="workshops">
+
+	  {% for workshop in site.workshops %}
+	    <li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url | prepend: site.baseurl }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
+	  {% endfor %}
+	</ul>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>{{ page.title }}</title>
+
+			<!-- Main stylesheet, set dynamically with jQuery below -->
+			<link rel="stylesheet" type="text/css" href="{{ '/css/main.css' | prepend: site.baseurl }}">
+			<link id="theme" rel="stylesheet" type="text/css">
+
+			<!-- Favicon -->
+			<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}" >
+			<link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}" >
+
+			<!-- jQuery -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+			<!-- jQuery UI -->
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+			<!-- Small script that allows textareas to resize according to the content -->
+			<script src="{{ '/scripts/autoresize.jquery.js' | prepend: site.baseurl }}"></script>
+
+			<!-- Font Awesome -->
+			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+			<!-- Cookie Library -->
+			<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+			<!-- Hardcoded Scripting -->
+			<script>
+				// Enable Automatic resizing of all textareas, and trigger the resize handlers
+				$(document).ready(function(){
+
+					// Toggle instructor notes if url contains instructor parameter
+					let searchParams = new URLSearchParams(window.location.search);
+					if(searchParams.has('instructor')) {
+						console.log("You're an instructor!");
+						$(".instructor_note").css({"display": "flex"});
+					}
+
+					$("textarea").autoResize();
+					$("textarea").trigger("keyup"); // Manually trigger the textbox resize script
+
+					$("#tabs").tabs(); // jQuery UI: Enable tabbed interface
+
+					// Set the stylesheet to dark/standard if the Cookie is set
+					if(Cookies.get('theme-stylesheet') == 'light-theme') {
+						$("#night-toggle").prop('checked', false);
+						$("head link#theme").attr("href", "{{ '/css/light-theme.css' | prepend: site.baseurl }} ");
+					} else {
+						$("#night-toggle").prop('checked', true);
+						$("head link#theme").attr("href", "{{ '/css/dark-theme.css' | prepend: site.baseurl }} ");
+					 }
+					
+					// Set/remove cookies when toggle is clicked
+					$("#night-toggle").click(function() {
+						if(Cookies.get('theme-stylesheet')) {
+							$("head link#theme").attr("href", "{{ '/css/dark-theme.css' | prepend: site.baseurl }} ");
+							Cookies.remove('theme-stylesheet');
+						} else {
+							Cookies.set('theme-stylesheet', 'light-theme');
+							$("head link#theme").attr("href", "{{ '/css/light-theme.css' | prepend: site.baseurl }} ");
+						}
+					});
+
+				});
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	        		<li><a href="{{ '/' | prepend: site.baseurl }}">Home</a></li>
+	        		<li><a href="{{ '/workshops' | prepend: site.baseurl }}">Workshops</a></li>
+					<li style="float: right;">
+						<i class="fa fa-sun-o" aria-hidden-="true"></i>
+							<label class="switch">
+								<input id="night-toggle" type="checkbox">
+								<span class="slider round"></span>
+							</label>
+						&nbsp;<i class="fa fa-moon-o" aria-hidden-="true"></i>
+					</li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			{{ content }}
+			
+			</div><!-- /.container -->
+			<footer>
+	    		<ul>
+	        		<li><a href="https://www.eresearch.auckland.ac.nz/">Centre for eResearch</a></li>
+				</ul>
+			</footer>
+		</body>
+	</html>

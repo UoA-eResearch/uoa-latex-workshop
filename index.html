@@ -1,0 +1,47 @@
+---
+layout: default
+title: Centre for eResearch
+---
+<div class="blurb">
+	<h1>Centre for eResearch</h1>
+</div><!-- /.blurb -->
+
+<!-- <div class="row">
+	<div class="three_column">
+		<h2>Blog</h2>
+		<ul class="blogs">
+			{% for post in site.posts %}
+				<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="three_column">
+		<h2>Tutorials</h2>
+		<ul class="tutorials">
+			{% for tutorial in site.tutorials %}
+				<li><span>{{ tutorial.date | date_to_string }}</span> » <a href="{{ tutorial.url | prepend: site.baseurl }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="three_column">
+		<h2>Workshops</h2>
+		<ul class="workshops">
+			{% for workshop in site.workshops %}
+				<li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url | prepend: site.baseurl }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div> -->
+
+<div class="row">
+	<div class="col">
+		<h2>Workshops</h2>
+		<ul class="workshops">
+			{% for workshop in site.workshops %}
+				<li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url | prepend: site.baseurl }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

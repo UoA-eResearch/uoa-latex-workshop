@@ -1,0 +1,243 @@
+@import url(colorful.css);
+
+html {
+    opacity: 1;
+}
+
+body {
+    background-color: #fff;
+    margin: 60px auto;
+    width: 55%;
+    line-height: 1.8em;
+    font-family: Arial, "Arial", Helvetica, "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", "Helvetica Neue", "Helvetica", "Roboto";
+    font-style: normal;
+    font-size: 15px;
+    color: rgb(59, 59, 59);
+}
+p {
+    margin: 0 0 10px;
+}
+nav ul, footer ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+}
+nav ul li, footer ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+a {
+    text-decoration: none;
+    /* color: #999; */
+    color: rgb(83, 148, 223);
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 3em;
+    line-height: 1;
+}
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
+}
+
+ul.posts { 
+    margin: 20px auto 40px; 
+    font-size: 15px;
+}
+
+ul.posts li {
+    list-style: none;
+}
+
+/* Code Snippet Styles */
+code {
+    color: brown;
+    font-size: 13px;
+}
+
+.highlight {
+    border-radius: 5%;
+    padding: 0 0.5em 0 0.5em;
+    /* Allow word wrapping in code */
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Code Output. Simply a box with the same color/style as code */
+.output {
+    background-color: hsla(54, 100%, 50%, 0.1);
+    border-radius: 5%;
+    font-size: 15px;
+    padding: 0 0.5em 0 0.5em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+}
+
+.output:before {
+    content: "Output: ";
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+
+/* Note boxes */
+/* Code Output. Simply a box with the same color/style as code */
+.note {
+    background-color: hsl(54, 100%, 95%);
+    border-style: solid;
+    border-width: 1px;
+    border-color:  hsl(29, 100%, 50%);
+    position: relative;
+    padding-left: 50px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+.note:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 7px; 
+    bottom: 0;
+    left: 7px;
+    padding-left: 32px;
+    background: url('../assets/light_bulb.png');
+    background-repeat: no-repeat;
+}
+
+/* Emulates the rouge style inline code highlighting within HTML parser */
+.manual-code {
+    color: brown;
+    font-family: monospace;
+    font-size: 12px;
+    padding-left: 0.2em;
+    padding-right: 0.1em;
+}
+
+/* Home Page Columns */
+.three_column {
+    float: left;
+    width: 33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.screenshot {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* Fixes IE auto-resizing bug */
+}
+
+.bordered {
+    border-style: solid;
+    border-width: 1px;
+}
+
+/* These classes are used for toggle-able notes intended for instructors during workshops */
+
+.instructor_note {
+    display: none; /* none or flex */
+    background-color: hsl(322, 100%, 49%);
+    border-style: solid;
+    border-width: 2px;
+    border-color:  hsl(59, 100%, 50%);
+    position: relative;
+    padding-left: 50px;
+    color: white;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 17px;
+    padding-top: 7px;
+}
+
+.instructor_note:before {
+    content: " ";
+    position: absolute;
+    top: 10px; 
+    bottom: 0;
+    left: 7px;
+    padding-left: 32px;
+    background: url('../assets/light_bulb.png');
+    background-repeat: no-repeat;
+}
+
+textarea.instructor_note {
+    font-family: 'DejaVu Sans Mono', Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin-top: 0em;
+    padding: 0.5em;
+    width: 100%;
+}
+
+/** Pretty Slider **/
+
+.switch {
+  position: relative;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 35px;
+  height: 19px;
+  vertical-align: middle;   
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #c3e4f7;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #4fa1d0;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(28px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 26px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
